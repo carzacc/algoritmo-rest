@@ -4,7 +4,7 @@ var http = require('http');
 var fs = require('fs');
 var util = require('util');
 var express = require('express');
-var mysql = require('mysql');
+//var mysql = require('mysql');
 var escapeHtml = require('./escape');
 var compression = require('compression');
 var helmet = require('helmet');
@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var algoritmo = require('./algo')
 
-var connessione = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+//var connessione = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 var app = express();
 
 app.use(helmet());
