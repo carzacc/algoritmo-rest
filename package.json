@@ -6,7 +6,6 @@
   "scripts": {
     "compile": "coffee -c server.coffee;node ./node_modules/babel-cli/bin/babel --presets react public/jsx/app.jsx -o public/js/app.js",
     "start": "node index.js",
-    "test": "siege -c10 -t1M http://localhost:3000"
   },
   "repository": {
     "type": "git",
