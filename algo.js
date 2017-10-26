@@ -1,6 +1,5 @@
 'use strict';
 
-
 const inter = 1;
 const juve = 2;
 const napoli = 3;
@@ -91,10 +90,7 @@ var sortedarr = new Array(20);
 var squadre = new Array(20);
 var nomisquadre = new Array(20);
 
-
-
 let partite = function(giornata) {
-
 
   for(let value of squadre) {
     value.azzeraPunti();
@@ -221,34 +217,6 @@ let partite = function(giornata) {
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEEFATTE");
 
 }
-
-
-
-
-/*
-var Inter = new Squadra();
-var Juve = new Squadra();
-var Napoli = new Squadra();
-var Milan = new Squadra();
-var Lazio = new Squadra();
-var Benevento = new Squadra();
-var Sampdoria = new Squadra();
-var Roma = new Squadra();
-var Hellas = new Squadra();
-var Torino = new Squadra();
-var Atalanta = new Squadra();
-var Spal = new Squadra();
-var Crotone = new Squadra();
-var Chievo = new Squadra();
-var Fiorentina = new Squadra();
-var Udinese = new Squadra();
-var Genoa = new Squadra();
-var Sassuolo = new Squadra();
-var Cagliari = new Squadra();
-var Bologna = new Squadra();
-*/
-
-
 
 function partita(squadra1, squadra2, goal1, goal2) {
   console.log("partita");
@@ -404,28 +372,6 @@ let failista = function () {
   return squadredauscire;
 }
 
-/*let avviaprogramma = function () {
-  partite(giornata);
-  generaarray();
-  let risultati = document.getElementById("Risultati");
-  console.log("dopogetelement");
-  let titolorisultati = risultati.appendChild(document.createElement('h1'));
-  titolorisultati.appendChild(document.createTextNode("RISULTATI:"));
-  let accapo = risultati.appendChild(document.createElement('br'));
-  var lista = risultati.appendChild(failista());
-  let tastoreset;
-  (function creatastoreset() {
-    tastoreset = document.createElement('button');
-    divtasti.appendChild(tastoreset);
-    let testotasto = document.createTextNode("Resetta tutto");
-    tastoreset.appendChild(testotasto);
-  }).call(this);
-  console.log(Inter.getPunti());
-  console.log("finita funzione");
-  for (let membro of arr) {
-    console.log(membro);
-  }
-}*/
 module.exports = function(giornata) {
   squadre[inter] = Inter;
   squadre[juve] = Juve;
@@ -470,7 +416,6 @@ module.exports = function(giornata) {
   nomisquadre[udinese] = "Udinese";
   partite(giornata);
   console.log("Generando array...");
-  //if (classif == "alt") {
     console.log("Alternativa");
     arralt[inter] = Inter.getPunti();
     arralt[juve] = Juve.getPunti();
@@ -492,7 +437,6 @@ module.exports = function(giornata) {
     arralt[sassuolo] = Sassuolo.getPunti();
     arralt[lazio] = Lazio.getPunti();
     arralt[udinese] = Udinese.getPunti();
-  //}  if (classif == "trad") {
     console.log("Tradizionale");
     arrtrad[inter] = Inter.getPuntiTrad();
     arrtrad[juve] = Juve.getPuntiTrad();
@@ -514,7 +458,6 @@ module.exports = function(giornata) {
     arrtrad[sassuolo] = Sassuolo.getPuntiTrad();
     arrtrad[lazio] = Lazio.getPuntiTrad();
     arrtrad[udinese] = Udinese.getPuntiTrad();
-  //}  if (classif == "somma") {
     console.log("Somma");
     arr[inter] = Inter.getPunti() + Inter.getPuntiTrad();
     arr[juve] = Juve.getPunti() + Juve.getPuntiTrad();
@@ -536,9 +479,6 @@ module.exports = function(giornata) {
     arr[sassuolo] = Sassuolo.getPunti() + Sassuolo.getPuntiTrad();
     arr[lazio] = Lazio.getPunti() + Lazio.getPuntiTrad();
     arr[udinese] = Udinese.getPunti() + Udinese.getPuntiTrad();
-  //} else {
-//    return "Si è verificatto un errore, controlla i dati che hai inserito";
-  //}
 
 
   sortedarr = Array.from(arr);
@@ -546,7 +486,6 @@ module.exports = function(giornata) {
 
   console.log("dentro lista");
   var squadredauscire = [];
-  //da mettere nome squadra
   for (let i = 0; i< arr.length; i++) {
     for (let c = 0; c < arr.length; c++) {
       if (arr[c] == sortedarr[i]) {
