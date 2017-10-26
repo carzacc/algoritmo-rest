@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "coffee -c server.coffee;node ./node_modules/babel-cli/bin/babel --presets react public/jsx/app.jsx -o public/js/app.js",
+    "compile": "./node_modules/coffeescript/bin/coffee -c server.coffee;node ./node_modules/babel-cli/bin/babel --presets react public/jsx/app.jsx -o public/js/app.js",
     "start": "node index.js",
     "siege": "siege -c10 -t1M http://localhost:3000",
     "test": "npm run-script compile"
-
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "coffeescript": "^2.0.1"
   }
 }
