@@ -31,7 +31,7 @@ app.get('/', function(req,res)  {
 
 
 app.use('/', express["static"]('public'));
-
-app.listen(process.env.PORT, function() {
-  return console.log("Avviato server su porta " + process.env.PORT);
+let port = process.env.PORT || 3000;
+app.listen(port, function() {
+  return console.log("Avviato server su porta " + port);
 });

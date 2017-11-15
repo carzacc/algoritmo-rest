@@ -28,6 +28,8 @@ var Squadra = class Squadra {
   constructor() {
     this.punti = 0;
     this.puntiTrad = 0;
+    this.golfatti = 0;
+    this.golsubiti = 0;
   }
   aggiungipartita(GFa, GSa) {
     if (parseInt(GFa) > parseInt(GSa)) {
@@ -47,12 +49,20 @@ var Squadra = class Squadra {
     if (parseInt(GFa) > 0) {
       this.punti = this.punti + 1.3;
     }
+    this.golfatti = this.golfatti+GFa;
+    this.golsubiti = this.golsubiti+GSa;
   }
   getPunti() {
     return parseFloat(this.punti);
   }
   getPuntiTrad() {
     return parseInt(this.puntiTrad);
+  }
+  getGolFatti() {
+    return parseInt(this.golfatti);
+  }
+  getGolSubiti()  {
+    return parseInt(this.golsubiti);
   }
   azzeraPunti() {
     this.punti=0;
@@ -89,6 +99,8 @@ var arrtrad = new Array(20);
 var sortedarr = new Array(20);
 var squadre = new Array(20);
 var nomisquadre = new Array(20);
+var arrfatti = new Array(20);
+var arrsubiti = new Array(20);
 
 let partite = function(giornata) {
 
@@ -511,6 +523,48 @@ module.exports = function(giornata) {
     arr[lazio] = Lazio.getPunti() + Lazio.getPuntiTrad();
     arr[udinese] = Udinese.getPunti() + Udinese.getPuntiTrad();
 
+    arrfatti[inter] = Inter.getGolFatti();
+    arrfatti[juve] = Juve.getGolFatti();
+    arrfatti[milan] = Milan.getGolFatti();
+    arrfatti[sampdoria] = Sampdoria.getGolFatti();
+    arrfatti[torino] = Torino.getGolFatti();
+    arrfatti[roma] = Roma.getGolFatti();
+    arrfatti[benevento] = Benevento.getGolFatti();
+    arrfatti[hellas] = Hellas.getGolFatti();
+    arrfatti[atalanta] = Atalanta.getGolFatti();
+    arrfatti[spal] = Spal.getGolFatti();
+    arrfatti[crotone] = Crotone.getGolFatti();
+    arrfatti[chievo] = Chievo.getGolFatti();
+    arrfatti[fiorentina] = Fiorentina.getGolFatti();
+    arrfatti[napoli] = Napoli.getGolFatti();
+    arrfatti[bologna] = Bologna.getGolFatti();
+    arrfatti[cagliari] = Cagliari.getGolFatti();
+    arrfatti[genoa] = Genoa.getGolFatti();
+    arrfatti[sassuolo] = Sassuolo.getGolFatti();
+    arrfatti[lazio] = Lazio.getGolFatti();
+    arrfatti[udinese] = Udinese.getGolFatti();
+
+    arrsubiti[inter] = Inter.getGolSubiti();
+    arrsubiti[juve] = Juve.getGolSubiti();
+    arrsubiti[milan] = Milan.getGolSubiti();
+    arrsubiti[sampdoria] = Sampdoria.getGolSubiti();
+    arrsubiti[torino] = Torino.getGolSubiti();
+    arrsubiti[roma] = Roma.getGolSubiti();
+    arrsubiti[benevento] = Benevento.getGolSubiti();
+    arrsubiti[hellas] = Hellas.getGolSubiti();
+    arrsubiti[atalanta] = Atalanta.getGolSubiti();
+    arrsubiti[spal] = Spal.getGolSubiti();
+    arrsubiti[crotone] = Crotone.getGolSubiti();
+    arrsubiti[chievo] = Chievo.getGolSubiti();
+    arrsubiti[fiorentina] = Fiorentina.getGolSubiti();
+    arrsubiti[napoli] = Napoli.getGolSubiti();
+    arrsubiti[bologna] = Bologna.getGolSubiti();
+    arrsubiti[cagliari] = Cagliari.getGolSubiti();
+    arrsubiti[genoa] = Genoa.getGolSubiti();
+    arrsubiti[sassuolo] = Sassuolo.getGolSubiti();
+    arrsubiti[lazio] = Lazio.getGolSubiti();
+    arrsubiti[udinese] = Udinese.getGolSubiti();
+
 
   sortedarr = Array.from(arr);
   sortedarr.sort((a, b) => b - a);
@@ -521,10 +575,12 @@ module.exports = function(giornata) {
     for (let c = 0; c < arr.length; c++) {
       if (arr[c] == sortedarr[i]) {
         squadredauscire.push({
-          "nome": nomisquadre[c],
-          "puntisomma": arr[c].toFixed(1),
-          "puntialt": arralt[c].toFixed(1),
-          "puntitrad": arrtrad[c].toFixed(1)
+          "Squadra": nomisquadre[c],
+          "Alternativa": arralt[c].toFixed(1),
+          "Tradizionale": arrtrad[c].toFixed(1),
+          "Somma": arr[c].toFixed(1),
+          "Gol Fatti": arrfatti[c],
+          "Gol Subiti": arrsubiti[c]
         })
       }
     }
