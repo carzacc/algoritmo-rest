@@ -70,6 +70,10 @@ var Squadra = class Squadra {
   azzeraPuntiTrad() {
     this.puntiTrad=0;
   }
+  resettaGol()  {
+    this.golfatti = 0;
+    this.golsubiti = 0;
+  }
 };
 
 var Inter = new Squadra();
@@ -107,6 +111,7 @@ let partite = function(giornata) {
   for(let value of squadre) {
     value.azzeraPunti();
     value.azzeraPuntiTrad();
+    value.resettaGol();
   }
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
   let soloquarta = 0;
