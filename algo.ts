@@ -408,7 +408,7 @@ function partita(squadra1, squadra2, goal1, goal2) {
 };*/
 
 
-let failista = function () {
+/*let failista = function () {
   console.log("dentro lista");
   var squadredauscire = new Array();
   var squadra = {};
@@ -424,7 +424,7 @@ let failista = function () {
     }
   }
   return squadredauscire;
-}
+}*/
 
 module.exports = function(giornata) {
   squadre[inter] = Inter;

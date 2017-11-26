@@ -22,14 +22,14 @@ const bologna = 19;
 const quotaCS = 2.5;
 const quotaGS = 1.5;
 const quotaGF = 1.3;
-var Squadra = (function () {
-    function Squadra() {
+class Squadra {
+    constructor() {
         this.punti = 0;
         this.puntiTrad = 0;
         this.golfatti = 0;
         this.golsubiti = 0;
     }
-    Squadra.prototype.aggiungipartita = function (GFa, GSa) {
+    aggiungipartita(GFa, GSa) {
         if (parseInt(GFa) > parseInt(GSa)) {
             this.puntiTrad = this.puntiTrad + 3;
         }
@@ -49,31 +49,30 @@ var Squadra = (function () {
         }
         this.golfatti = this.golfatti + GFa;
         this.golsubiti = this.golsubiti + GSa;
-    };
-    Squadra.prototype.getPunti = function () {
+    }
+    getPunti() {
         return this.punti;
-    };
-    Squadra.prototype.getPuntiTrad = function () {
+    }
+    getPuntiTrad() {
         return this.puntiTrad;
-    };
-    Squadra.prototype.getGolFatti = function () {
+    }
+    getGolFatti() {
         return this.golfatti;
-    };
-    Squadra.prototype.getGolSubiti = function () {
+    }
+    getGolSubiti() {
         return this.golsubiti;
-    };
-    Squadra.prototype.azzeraPunti = function () {
+    }
+    azzeraPunti() {
         this.punti = 0;
-    };
-    Squadra.prototype.azzeraPuntiTrad = function () {
+    }
+    azzeraPuntiTrad() {
         this.puntiTrad = 0;
-    };
-    Squadra.prototype.resettaGol = function () {
+    }
+    resettaGol() {
         this.golfatti = 0;
         this.golsubiti = 0;
-    };
-    return Squadra;
-})();
+    }
+}
 ;
 var Inter = new Squadra();
 var Juve = new Squadra();
@@ -105,6 +104,7 @@ var arrfatti = new Array(20);
 var arrsubiti = new Array(20);
 let partite = function (giornata) {
     let squadra;
+    // Equivalent to for(squadra of squadre) loop
     for (let i = 0; i < squadre.length; i++) {
         squadra = squadre[i];
         squadra.azzeraPunti();
@@ -390,22 +390,23 @@ function partita(squadra1, squadra2, goal1, goal2) {
   if (Trad) return "Trad";
   if (Somma) return "Somma";
 };*/
-let failista = function () {
-    console.log("dentro lista");
-    var squadredauscire = new Array();
-    var squadra = {};
-    for (let i = 0; i < arr.length; i++) {
-        for (let c = 0; c < arr.length; c++) {
-            if (arr[c] == sortedarr[i]) {
-                squadredauscire.squadra.pushs({
-                    "nome": nomisquadre[c],
-                    "punti": arr[c]
-                });
-            }
-        }
+/*let failista = function () {
+  console.log("dentro lista");
+  var squadredauscire = new Array();
+  var squadra = {};
+  //da mettere nome squadra
+  for (let i = 0; i<arr.length; i++) {
+    for (let c = 0; c < arr.length; c++) {
+      if (arr[c] == sortedarr[i]) {
+        squadredauscire.squadra.pushs({
+          "nome": nomisquadre[c],
+          "punti": arr[c]
+        })
+      }
     }
-    return squadredauscire;
-};
+  }
+  return squadredauscire;
+}*/
 module.exports = function (giornata) {
     squadre[inter] = Inter;
     squadre[juve] = Juve;
@@ -553,7 +554,7 @@ module.exports = function (giornata) {
     arrsubiti[lazio] = Lazio.getGolSubiti();
     arrsubiti[udinese] = Udinese.getGolSubiti();
     sortedarr = Array.from(arr);
-    sortedarr.sort(function (a, b) { return b - a; });
+    sortedarr.sort((a, b) => b - a);
     console.log("dentro lista");
     var squadredauscire = [];
     for (let i = 0; i < arr.length; i++) {
