@@ -102,15 +102,10 @@ var Genoa = new Squadra("Genoa");
 var Sassuolo = new Squadra("Sassuolo");
 var Cagliari = new Squadra("Cagliari");
 var Bologna = new Squadra("Bologna");
-var arr = new Array(20);
-var arralt = new Array(20);
-var arrtrad = new Array(20);
 
+var arr = new Array(20);
 var sortedarr: number[] = new Array(20);
 var squadre = new Array(20);
-var nomisquadre: string[] = new Array(20);
-var arrfatti: number[] = new Array(20);
-var arrsubiti: number[] = new Array(20);
 
 let partite = function(giornata) {
 let squadra;
