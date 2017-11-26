@@ -5,7 +5,6 @@ var fs = require('fs');
 var util = require('util');
 var express = require('express');
 //var mysql = require('mysql');
-var escapeHtml = require('./escape');
 var compression = require('compression');
 var helmet = require('helmet');
 var start = require('./start');
