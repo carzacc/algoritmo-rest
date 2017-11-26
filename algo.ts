@@ -56,16 +56,16 @@ class Squadra {
     this.golfatti = this.golfatti+GFa;
     this.golsubiti = this.golsubiti+GSa;
   }
-  getPunti() {
+  getPunti(): number {
     return this.punti;
   }
-  getPuntiTrad() {
+  getPuntiTrad(): number {
     return this.puntiTrad;
   }
-  getGolFatti() {
+  getGolFatti(): number {
     return this.golfatti;
   }
-  getGolSubiti()  {
+  getGolSubiti(): number  {
     return this.golsubiti;
   }
   azzeraPunti() {
@@ -104,11 +104,11 @@ var arr = new Array(20);
 var arralt = new Array(20);
 var arrtrad = new Array(20);
 
-var sortedarr = new Array(20);
+var sortedarr: number[] = new Array(20);
 var squadre = new Array(20);
-var nomisquadre = new Array(20);
-var arrfatti = new Array(20);
-var arrsubiti = new Array(20);
+var nomisquadre: string[] = new Array(20);
+var arrfatti: number[] = new Array(20);
+var arrsubiti: number[] = new Array(20);
 
 let partite = function(giornata) {
 let squadra;
