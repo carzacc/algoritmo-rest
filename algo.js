@@ -439,8 +439,8 @@ module.exports = function (giornata) {
             if (arr[c] == sortedarr[i]) {
                 squadredauscire.push({
                     "Squadra": squadre[c].nomesquadra,
-                    "Alternativa": squadre[c].puntiTrad.toFixed(1),
-                    "Tradizionale": squadre[c].punti.toFixed(1),
+                    "Alternativa": squadre[c].punti.toFixed(1),
+                    "Tradizionale": squadre[c].puntiTrad.toFixed(1),
                     "Somma": arr[c].toFixed(1),
                     "Gol Fatti": squadre[c].golfatti,
                     "Gol Subiti": squadre[c].golsubiti
