@@ -25,11 +25,13 @@ const quotaGS = 1.5;
 const quotaGF = 1.3;
 
 class Squadra {
+  nomesquadra: string;
   punti: number;
   puntiTrad: number;
   golfatti: number;
   golsubiti: number;
-  constructor() {
+  constructor(nome: string) {
+    this.nomesquadra = nome;
     this.punti = 0;
     this.puntiTrad = 0;
     this.golfatti = 0;
@@ -80,26 +82,26 @@ class Squadra {
   }
 };
 
-var Inter = new Squadra();
-var Juve = new Squadra();
-var Napoli = new Squadra();
-var Milan = new Squadra();
-var Lazio = new Squadra();
-var Benevento = new Squadra();
-var Sampdoria = new Squadra();
-var Roma = new Squadra();
-var Hellas = new Squadra();
-var Torino = new Squadra();
-var Atalanta = new Squadra();
-var Spal = new Squadra();
-var Crotone = new Squadra();
-var Chievo = new Squadra();
-var Fiorentina = new Squadra();
-var Udinese = new Squadra();
-var Genoa = new Squadra();
-var Sassuolo = new Squadra();
-var Cagliari = new Squadra();
-var Bologna = new Squadra();
+var Inter = new Squadra("Inter");
+var Juve = new Squadra("juventus");
+var Napoli = new Squadra("Napoli");
+var Milan = new Squadra("Milan");
+var Lazio = new Squadra("Lazio");
+var Benevento = new Squadra("Benevento");
+var Sampdoria = new Squadra("Sampdoria");
+var Roma = new Squadra("Roma");
+var Hellas = new Squadra("Hellas Verona");
+var Torino = new Squadra("Torino");
+var Atalanta = new Squadra("Atalanta");
+var Spal = new Squadra("Spal");
+var Crotone = new Squadra("Crotone");
+var Chievo = new Squadra("ChievoVerona");
+var Fiorentina = new Squadra("Fiorentina");
+var Udinese = new Squadra("Udinese");
+var Genoa = new Squadra("Genoa");
+var Sassuolo = new Squadra("Sassuolo");
+var Cagliari = new Squadra("Cagliari");
+var Bologna = new Squadra("Bologna");
 var arr = new Array(20);
 var arralt = new Array(20);
 var arrtrad = new Array(20);
@@ -408,23 +410,7 @@ function partita(squadra1, squadra2, goal1, goal2) {
 };*/
 
 
-/*let failista = function () {
-  console.log("dentro lista");
-  var squadredauscire = new Array();
-  var squadra = {};
-  //da mettere nome squadra
-  for (let i = 0; i<arr.length; i++) {
-    for (let c = 0; c < arr.length; c++) {
-      if (arr[c] == sortedarr[i]) {
-        squadredauscire.squadra.pushs({
-          "nome": nomisquadre[c],
-          "punti": arr[c]
-        })
-      }
-    }
-  }
-  return squadredauscire;
-}*/
+
 
 module.exports = function(giornata) {
   squadre[inter] = Inter;
@@ -448,134 +434,29 @@ module.exports = function(giornata) {
   squadre[lazio] = Lazio;
   squadre[udinese] = Udinese;
 
-  nomisquadre[inter] = "Inter";
-  nomisquadre[juve] = "Juve";
-  nomisquadre[milan] = "Milan";
-  nomisquadre[sampdoria] = "Sampdoria";
-  nomisquadre[torino] = "Torino";
-  nomisquadre[roma] = "Roma";
-  nomisquadre[benevento] = "Benevento";
-  nomisquadre[hellas] = "Hellas";
-  nomisquadre[atalanta] = "Atalanta";
-  nomisquadre[spal] = "Spal";
-  nomisquadre[crotone] = "Crotone";
-  nomisquadre[chievo] = "Chievo";
-  nomisquadre[fiorentina] = "Fiorentina";
-  nomisquadre[napoli] = "Napoli";
-  nomisquadre[bologna] = "Bologna";
-  nomisquadre[cagliari] = "Cagliari";
-  nomisquadre[genoa] = "Genoa";
-  nomisquadre[sassuolo] = "Sassuolo";
-  nomisquadre[lazio] = "Lazio";
-  nomisquadre[udinese] = "Udinese";
   partite(giornata);
   console.log("Generando array...");
-    console.log("Alternativa");
-    arralt[inter] = Inter.getPunti();
-    arralt[juve] = Juve.getPunti();
-    arralt[milan] = Milan.getPunti();
-    arralt[sampdoria] = Sampdoria.getPunti();
-    arralt[torino] = Torino.getPunti();
-    arralt[roma] = Roma.getPunti();
-    arralt[benevento] = Benevento.getPunti();
-    arralt[hellas] = Hellas.getPunti();
-    arralt[atalanta] = Atalanta.getPunti();
-    arralt[spal] = Spal.getPunti();
-    arralt[crotone] = Crotone.getPunti();
-    arralt[chievo] = Chievo.getPunti();
-    arralt[fiorentina] = Fiorentina.getPunti();
-    arralt[napoli] = Napoli.getPunti();
-    arralt[bologna] = Bologna.getPunti();
-    arralt[cagliari] = Cagliari.getPunti();
-    arralt[genoa] = Genoa.getPunti();
-    arralt[sassuolo] = Sassuolo.getPunti();
-    arralt[lazio] = Lazio.getPunti();
-    arralt[udinese] = Udinese.getPunti();
-    console.log("Tradizionale");
-    arrtrad[inter] = Inter.getPuntiTrad();
-    arrtrad[juve] = Juve.getPuntiTrad();
-    arrtrad[milan] = Milan.getPuntiTrad();
-    arrtrad[sampdoria] = Sampdoria.getPuntiTrad();
-    arrtrad[torino] = Torino.getPuntiTrad();
-    arrtrad[roma] = Roma.getPuntiTrad();
-    arrtrad[benevento] = Benevento.getPuntiTrad();
-    arrtrad[hellas] = Hellas.getPuntiTrad();
-    arrtrad[atalanta] = Atalanta.getPuntiTrad();
-    arrtrad[spal] = Spal.getPuntiTrad();
-    arrtrad[crotone] = Crotone.getPuntiTrad();
-    arrtrad[chievo] = Chievo.getPuntiTrad();
-    arrtrad[fiorentina] = Fiorentina.getPuntiTrad();
-    arrtrad[napoli] = Napoli.getPuntiTrad();
-    arrtrad[bologna] = Bologna.getPuntiTrad();
-    arrtrad[cagliari] = Cagliari.getPuntiTrad();
-    arrtrad[genoa] = Genoa.getPuntiTrad();
-    arrtrad[sassuolo] = Sassuolo.getPuntiTrad();
-    arrtrad[lazio] = Lazio.getPuntiTrad();
-    arrtrad[udinese] = Udinese.getPuntiTrad();
-    console.log("Somma");
-    arr[inter] = Inter.getPunti() + Inter.getPuntiTrad();
-    arr[juve] = Juve.getPunti() + Juve.getPuntiTrad();
-    arr[milan] = Milan.getPunti() + Milan.getPuntiTrad();
-    arr[sampdoria] = Sampdoria.getPunti() + Sampdoria.getPuntiTrad();
-    arr[torino] = Torino.getPunti() + Torino.getPuntiTrad();
-    arr[roma] = Roma.getPunti() + Roma.getPuntiTrad();
-    arr[benevento] = Benevento.getPunti() + Benevento.getPuntiTrad();
-    arr[hellas] = Hellas.getPunti() + Hellas.getPuntiTrad();
-    arr[atalanta] = Atalanta.getPunti() + Atalanta.getPuntiTrad();
-    arr[spal] = Spal.getPunti() + Spal.getPuntiTrad();
-    arr[crotone] = Crotone.getPunti() + Crotone.getPuntiTrad();
-    arr[chievo] = Chievo.getPunti() + Chievo.getPuntiTrad();
-    arr[fiorentina] = Fiorentina.getPunti() + Fiorentina.getPuntiTrad();
-    arr[napoli] = Napoli.getPunti() + Napoli.getPuntiTrad();
-    arr[bologna] = Bologna.getPunti() + Bologna.getPuntiTrad();
-    arr[cagliari] = Cagliari.getPunti() + Cagliari.getPuntiTrad();
-    arr[genoa] = Genoa.getPunti() + Genoa.getPuntiTrad();
-    arr[sassuolo] = Sassuolo.getPunti() + Sassuolo.getPuntiTrad();
-    arr[lazio] = Lazio.getPunti() + Lazio.getPuntiTrad();
-    arr[udinese] = Udinese.getPunti() + Udinese.getPuntiTrad();
-
-    arrfatti[inter] = Inter.getGolFatti();
-    arrfatti[juve] = Juve.getGolFatti();
-    arrfatti[milan] = Milan.getGolFatti();
-    arrfatti[sampdoria] = Sampdoria.getGolFatti();
-    arrfatti[torino] = Torino.getGolFatti();
-    arrfatti[roma] = Roma.getGolFatti();
-    arrfatti[benevento] = Benevento.getGolFatti();
-    arrfatti[hellas] = Hellas.getGolFatti();
-    arrfatti[atalanta] = Atalanta.getGolFatti();
-    arrfatti[spal] = Spal.getGolFatti();
-    arrfatti[crotone] = Crotone.getGolFatti();
-    arrfatti[chievo] = Chievo.getGolFatti();
-    arrfatti[fiorentina] = Fiorentina.getGolFatti();
-    arrfatti[napoli] = Napoli.getGolFatti();
-    arrfatti[bologna] = Bologna.getGolFatti();
-    arrfatti[cagliari] = Cagliari.getGolFatti();
-    arrfatti[genoa] = Genoa.getGolFatti();
-    arrfatti[sassuolo] = Sassuolo.getGolFatti();
-    arrfatti[lazio] = Lazio.getGolFatti();
-    arrfatti[udinese] = Udinese.getGolFatti();
-
-    arrsubiti[inter] = Inter.getGolSubiti();
-    arrsubiti[juve] = Juve.getGolSubiti();
-    arrsubiti[milan] = Milan.getGolSubiti();
-    arrsubiti[sampdoria] = Sampdoria.getGolSubiti();
-    arrsubiti[torino] = Torino.getGolSubiti();
-    arrsubiti[roma] = Roma.getGolSubiti();
-    arrsubiti[benevento] = Benevento.getGolSubiti();
-    arrsubiti[hellas] = Hellas.getGolSubiti();
-    arrsubiti[atalanta] = Atalanta.getGolSubiti();
-    arrsubiti[spal] = Spal.getGolSubiti();
-    arrsubiti[crotone] = Crotone.getGolSubiti();
-    arrsubiti[chievo] = Chievo.getGolSubiti();
-    arrsubiti[fiorentina] = Fiorentina.getGolSubiti();
-    arrsubiti[napoli] = Napoli.getGolSubiti();
-    arrsubiti[bologna] = Bologna.getGolSubiti();
-    arrsubiti[cagliari] = Cagliari.getGolSubiti();
-    arrsubiti[genoa] = Genoa.getGolSubiti();
-    arrsubiti[sassuolo] = Sassuolo.getGolSubiti();
-    arrsubiti[lazio] = Lazio.getGolSubiti();
-    arrsubiti[udinese] = Udinese.getGolSubiti();
-
+  console.log("Somma");
+  arr[inter] = Inter.getPunti() + Inter.getPuntiTrad();
+  arr[juve] = Juve.getPunti() + Juve.getPuntiTrad();
+  arr[milan] = Milan.getPunti() + Milan.getPuntiTrad();
+  arr[sampdoria] = Sampdoria.getPunti() + Sampdoria.getPuntiTrad();
+  arr[torino] = Torino.getPunti() + Torino.getPuntiTrad();
+  arr[roma] = Roma.getPunti() + Roma.getPuntiTrad();
+  arr[benevento] = Benevento.getPunti() + Benevento.getPuntiTrad();
+  arr[hellas] = Hellas.getPunti() + Hellas.getPuntiTrad();
+  arr[atalanta] = Atalanta.getPunti() + Atalanta.getPuntiTrad();
+  arr[spal] = Spal.getPunti() + Spal.getPuntiTrad();
+  arr[crotone] = Crotone.getPunti() + Crotone.getPuntiTrad();
+  arr[chievo] = Chievo.getPunti() + Chievo.getPuntiTrad();
+  arr[fiorentina] = Fiorentina.getPunti() + Fiorentina.getPuntiTrad();
+  arr[napoli] = Napoli.getPunti() + Napoli.getPuntiTrad();
+  arr[bologna] = Bologna.getPunti() + Bologna.getPuntiTrad();
+  arr[cagliari] = Cagliari.getPunti() + Cagliari.getPuntiTrad();
+  arr[genoa] = Genoa.getPunti() + Genoa.getPuntiTrad();
+  arr[sassuolo] = Sassuolo.getPunti() + Sassuolo.getPuntiTrad();
+  arr[lazio] = Lazio.getPunti() + Lazio.getPuntiTrad();
+  arr[udinese] = Udinese.getPunti() + Udinese.getPuntiTrad();
 
   sortedarr = Array.from(arr);
   sortedarr.sort((a, b) => b - a);
@@ -586,12 +467,12 @@ module.exports = function(giornata) {
     for (let c = 0; c < arr.length; c++) {
       if (arr[c] == sortedarr[i]) {
         squadredauscire.push({
-          "Squadra": nomisquadre[c],
-          "Alternativa": arralt[c].toFixed(1),
-          "Tradizionale": arrtrad[c].toFixed(1),
+          "Squadra": squadre[c].nomesquadra,
+          "Alternativa": squadre[c].puntiTrad.toFixed(1),
+          "Tradizionale": squadre[c].punti.toFixed(1),
           "Somma": arr[c].toFixed(1),
-          "Gol Fatti": arrfatti[c],
-          "Gol Subiti": arrsubiti[c]
+          "Gol Fatti": squadre[c].golfatti,
+          "Gol Subiti": squadre[c].golsubiti
         })
       }
     }
