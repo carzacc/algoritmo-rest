@@ -7,7 +7,6 @@ var express = require('express');
 //var mysql = require('mysql');
 var compression = require('compression');
 var helmet = require('helmet');
-var start = require('./start');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var algoritmo = require('./algo')
