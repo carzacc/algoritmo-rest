@@ -29,13 +29,21 @@ class Squadra {
         this.puntiTrad = 0;
         this.golfatti = 0;
         this.golsubiti = 0;
+        this.pareggi = 0;
+        this.sconfitte = 0;
+        this.vittorie = 0;
     }
     aggiungipartita(GFa, GSa) {
-        if (parseInt(GFa) > parseInt(GSa)) {
+        if (GFa > GSa) {
             this.puntiTrad = this.puntiTrad + 3;
+            this.vittorie = this.vittorie + 1;
         }
-        if (parseInt(GFa) == parseInt(GSa)) {
+        if (GFa == GSa) {
             this.puntiTrad = this.puntiTrad + 1;
+            this.pareggi = this.pareggi + 1;
+        }
+        if (GFa < GSa) {
+            this.sconfitte = this.sconfitte + 1;
         }
         if (parseInt(GSa) == 0) {
             this.punti = this.punti + quotaCS;
@@ -443,7 +451,10 @@ module.exports = function (giornata) {
                     "Tradizionale": squadre[c].puntiTrad.toFixed(1),
                     "Somma": arr[c].toFixed(1),
                     "Gol Fatti": squadre[c].golfatti,
-                    "Gol Subiti": squadre[c].golsubiti
+                    "Gol Subiti": squadre[c].golsubiti,
+                    "Vittorie": squadre[c].vittorie,
+                    "Pareggi": squadre[c].pareggi,
+                    "Sconfitte": squadre[c].sconfitte
                 });
             }
         }
