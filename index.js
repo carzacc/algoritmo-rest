@@ -11,6 +11,10 @@ var expressValidator = require('express-validator');
 var algoritmo = require('./algo');
 //var connessione = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 var app = express();
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://algoritmo.carzacc.info");
+    next();
+});
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());

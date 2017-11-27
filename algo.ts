@@ -91,6 +91,11 @@ class Squadra {
     this.golfatti = 0;
     this.golsubiti = 0;
   }
+  resettaPartiteVintePersePareggiate()  {
+    this.vittorie = 0;
+    this.pareggi = 0;
+    this.sconfitte = 0;
+  }
 };
 
 var Inter = new Squadra("Inter");
@@ -126,6 +131,7 @@ let squadra;
     squadra.azzeraPunti();
     squadra.azzeraPuntiTrad();
     squadra.resettaGol();
+    squadra.resettaPartiteVintePersePareggiate();
   }
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
   let soloquarta = 0;
