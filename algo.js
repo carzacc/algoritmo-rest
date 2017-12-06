@@ -117,12 +117,12 @@ var Lazio = new Squadra("Lazio");
 var Benevento = new Squadra("Benevento");
 var Sampdoria = new Squadra("Sampdoria");
 var Roma = new Squadra("Roma");
-var Hellas = new Squadra("Hellas Verona");
+var Hellas = new Squadra("Verona");
 var Torino = new Squadra("Torino");
 var Atalanta = new Squadra("Atalanta");
 var Spal = new Squadra("Spal");
 var Crotone = new Squadra("Crotone");
-var Chievo = new Squadra("ChievoVerona");
+var Chievo = new Squadra("Chievo");
 var Fiorentina = new Squadra("Fiorentina");
 var Udinese = new Squadra("Udinese");
 var Genoa = new Squadra("Genoa");
@@ -292,125 +292,12 @@ let partite = function (giornata) {
 function partita(squadra1, squadra2, goal1, goal2) {
     console.log("partita");
     console.log(squadra1);
-    if (squadra1 == "Inter") {
-        Inter.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Napoli") {
-        Napoli.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "juventus" || squadra1 == "juve") {
-        Juve.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Lazio") {
-        Lazio.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Milan") {
-        Milan.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Torino") {
-        Torino.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Sampdoria") {
-        Sampdoria.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Roma") {
-        Roma.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Fiorentina") {
-        Fiorentina.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Cagliari") {
-        Cagliari.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Atalanta") {
-        Atalanta.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "ChievoVerona" || squadra1 == "Chievo" || squadra1 == "Chievoverona") {
-        Chievo.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Bologna") {
-        Bologna.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Spal") {
-        Spal.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Udinese") {
-        Udinese.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Genoa") {
-        Genoa.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Sassuolo") {
-        Sassuolo.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Crotone") {
-        Crotone.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Hellas Verona" || squadra1 == "Hellas" || squadra1 == "Verona") {
-        Hellas.aggiungipartita(goal1, goal2);
-    }
-    if (squadra1 == "Benevento") {
-        Benevento.aggiungipartita(goal1, goal2);
-    }
-    if (squadra2 == "Inter") {
-        Inter.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Napoli") {
-        Napoli.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "juventus" || squadra2 == "juve") {
-        Juve.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Lazio") {
-        Lazio.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Milan") {
-        Milan.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Torino") {
-        Torino.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Sampdoria") {
-        Sampdoria.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Roma") {
-        Roma.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Fiorentina") {
-        Fiorentina.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Cagliari") {
-        Cagliari.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Atalanta") {
-        Atalanta.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "ChievoVerona" || squadra2 == "Chievo" || squadra2 == "Chievoverona") {
-        Chievo.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Bologna") {
-        Bologna.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Spal") {
-        Spal.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Udinese") {
-        Udinese.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Genoa") {
-        Genoa.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Sassuolo") {
-        Sassuolo.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Crotone") {
-        Crotone.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Hellas Verona" || squadra2 == "Hellas" || squadra2 == "Verona") {
-        Hellas.aggiungipartita(goal2, goal1);
-    }
-    if (squadra2 == "Benevento") {
-        Benevento.aggiungipartita(goal2, goal1);
+    for (let i = 0; i < squadre.length; i++) {
+        let corrente = squadre[i];
+        if (corrente.nomesquadra == squadra1)
+            corrente.aggiungipartita(goal1, goal2);
+        if (corrente.nomesquadra == squadra2)
+            corrente.aggiungipartita(goal2, goal1);
     }
 }
 /*let tipoclassifica = () => {
