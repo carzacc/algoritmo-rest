@@ -143,27 +143,27 @@ let partite = function (giornata) {
         squadra.resettaPartiteVintePersePareggiate();
     }
     console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
-    let soloquarta = 0;
-    let finoquinta = 0;
-    let finosesta = 0;
-    let finosettima = 0;
-    let finottava = 0;
-    let finonona = 0;
-    let finodecima = 0;
+    let soloquarta = false;
+    let finoquinta = false;
+    let finosesta = false;
+    let finosettima = false;
+    let finottava = false;
+    let finonona = false;
+    let finodecima = false;
     if (giornata < 5)
-        soloquarta = 1;
+        soloquarta = true;
     if (giornata < 6)
-        finoquinta = 1;
+        finoquinta = true;
     if (giornata < 7)
-        finosesta = 1;
+        finosesta = true;
     if (giornata < 8)
-        finosettima = 1;
+        finosettima = true;
     if (giornata < 9)
-        finottava = 1;
+        finottava = true;
     if (giornata < 10)
-        finonona = 1;
+        finonona = true;
     if (giornata < 11)
-        finodecima = 1;
+        finodecima = true;
     partita("juventus", "Cagliari", 3, 0);
     partita("Verona", "Napoli", 1, 3);
     partita("Atalanta", "Roma", 0, 1);

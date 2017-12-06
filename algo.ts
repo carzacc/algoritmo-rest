@@ -140,12 +140,12 @@ var Sassuolo = new Squadra("Sassuolo");
 var Cagliari = new Squadra("Cagliari");
 var Bologna = new Squadra("Bologna");
 
-var arr = new Array(20);
+var arr: number[] = new Array(20);
 var sortedarr: number[] = new Array(20);
-var squadre = new Array(20);
+var squadre: Squadra[] = new Array(20);
 
-let partite = function(giornata) {
-let squadra;
+let partite = function(giornata): void {
+let squadra: Squadra;
 // Equivalent to for(squadra of squadre) loop
   for(let i = 0 ; i < squadre.length ; i++) {
     squadra = squadre[i];
@@ -155,27 +155,27 @@ let squadra;
     squadra.resettaPartiteVintePersePareggiate();
   }
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
-  let soloquarta = 0;
-  let finoquinta = 0;
-  let finosesta = 0;
-  let finosettima = 0;
-  let finottava = 0;
-  let finonona = 0;
-  let finodecima = 0;
+  let soloquarta: boolean = false;
+  let finoquinta: boolean = false;
+  let finosesta: boolean = false;
+  let finosettima: boolean = false;
+  let finottava: boolean = false;
+  let finonona: boolean = false;
+  let finodecima: boolean = false;
   if(giornata<5)
-    soloquarta=1;
+    soloquarta=true;
   if(giornata<6)
-    finoquinta=1;
+    finoquinta=true;
   if(giornata<7)
-    finosesta=1;
+    finosesta=true;
   if(giornata<8)
-    finosettima=1;
+    finosettima=true;
   if(giornata<9)
-    finottava=1;
+    finottava=true;
   if(giornata<10)
-    finonona=1;
+    finonona=true;
   if(giornata<11)
-    finodecima=1;
+    finodecima=true;
   partita("juventus", "Cagliari", 3, 0);
   partita("Verona", "Napoli", 1, 3);
   partita("Atalanta", "Roma", 0, 1);
