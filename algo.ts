@@ -102,6 +102,15 @@ class Squadra {
   getGolSubiti(): number  {
     return this.golsubiti;
   }
+  getVittorie(): number {
+    return this.vittorie;
+  }
+  getPareggi(): number  {
+    return this.pareggi;
+  }
+  getSconfitte(): number  {
+    return this.sconfitte;
+  }
   azzeraPunti() {
     this.punti=0;
   }
@@ -446,20 +455,21 @@ module.exports = function(giornata) {
 
   console.log("dentro lista");
   var squadredauscire = [];
-  for (let i = 0; i< arr.length; i++) {
+  for (let i = 0; i < sortedarr.length; i++) {
     for (let c = 0; c < arr.length; c++) {
       if (arr[c] == sortedarr[i]) {
         squadredauscire.push({
           "Squadra": squadre[c].nomesquadra,
-          "Alternativa": squadre[c].punti.toFixed(1),
-          "Tradizionale": squadre[c].puntiTrad.toFixed(1),
+          "Alternativa": squadre[c].getPunti().toFixed(1),
+          "Tradizionale": squadre[c].getPuntiTrad().toFixed(1),
           "Somma": arr[c].toFixed(1),
-          "Gol Fatti": squadre[c].golfatti,
-          "Gol Subiti": squadre[c].golsubiti,
-          "Vittorie": squadre[c].vittorie,
-          "Pareggi": squadre[c].pareggi,
-          "Sconfitte": squadre[c].sconfitte
+          "Gol Fatti": squadre[c].getGolFatti(),
+          "Gol Subiti": squadre[c].getGolSubiti(),
+          "Vittorie": squadre[c].getVittorie(),
+          "Pareggi": squadre[c].getPareggi(),
+          "Sconfitte": squadre[c].getSconfitte()
         })
+        arr[c] = 0;
       }
     }
   }
