@@ -1,4 +1,4 @@
-# REST API calcolo algoritmo [![Build Status](https://travis-ci.org/carzacc/algoritmo-rest.svg?branch=master)](https://travis-ci.org/carzacc/algoritmo-rest)
+# Server calcolo algoritmo [![Build Status](https://travis-ci.org/carzacc/algoritmo-rest.svg?branch=master)](https://travis-ci.org/carzacc/algoritmo-rest)
 Potete usare l'API all'indirizzo http://algorest.carzacc.info usando richieste GET
 L'output è un oggetto JSON come questo.
 ```json
