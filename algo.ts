@@ -416,10 +416,17 @@ let partite = function(giornata): void {
 function partita(squadra1, squadra2, goal1, goal2) {
   console.log("partita");
   console.log(squadra1);
-  squadre.forEach(function(corrente)  {
-    if(corrente.nomesquadra == squadra1)  corrente.aggiungipartita(goal1,goal2);
-    if(corrente.nomesquadra == squadra2)  corrente.aggiungipartita(goal2,goal1);
-  })
+  for (let corrente of squadre)  {
+    if(corrente.nomesquadra == squadra1)       corrente.aggiungipartita(goal1,goal2);
+    else if(corrente.nomesquadra == squadra2)  corrente.aggiungipartita(goal2,goal1);
+    else {
+      console.log("Alias utilizzati");
+      for (let al of corrente.alias)  {
+        if(al == squadra1)       corrente.aggiungipartita(goal1,goal2);
+        else if(al == squadra2)  corrente.aggiungipartita(goal2,goal1);
+      }
+    }
+  }
 }
 
 module.exports = function(giornata) {

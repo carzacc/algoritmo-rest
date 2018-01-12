@@ -396,12 +396,20 @@ let partite = function (giornata) {
 function partita(squadra1, squadra2, goal1, goal2) {
     console.log("partita");
     console.log(squadra1);
-    squadre.forEach(function (corrente) {
+    for (let corrente of squadre) {
         if (corrente.nomesquadra == squadra1)
             corrente.aggiungipartita(goal1, goal2);
-        if (corrente.nomesquadra == squadra2)
+        else if (corrente.nomesquadra == squadra2)
             corrente.aggiungipartita(goal2, goal1);
-    });
+        else {
+            for (let al of corrente.alias) {
+                if (al == squadra1)
+                    corrente.aggiungipartita(goal1, goal2);
+                else if (al == squadra2)
+                    corrente.aggiungipartita(goal2, goal1);
+            }
+        }
+    }
 }
 module.exports = function (giornata) {
     squadre[inter] = Inter;
@@ -426,7 +434,6 @@ module.exports = function (giornata) {
     squadre[udinese] = Udinese;
     partite(giornata);
     squadre.sort((a, b) => b.somma - a.somma);
-    console.log(Juve.alias);
     console.log("dentro lista");
     return squadre.map((squadra) => {
         return {
