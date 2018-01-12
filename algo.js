@@ -116,6 +116,12 @@ class Squadra {
         this.pareggi = 0;
         this.sconfitte = 0;
     }
+    calcolaSomma() {
+        this.somma = this.punti + this.puntiTrad;
+    }
+    getSomma() {
+        return this.somma;
+    }
 }
 ;
 var Inter = new Squadra("Inter");
@@ -138,19 +144,14 @@ var Genoa = new Squadra("Genoa");
 var Sassuolo = new Squadra("Sassuolo");
 var Cagliari = new Squadra("Cagliari");
 var Bologna = new Squadra("Bologna");
-var arr = new Array(20);
-var sortedarr = new Array(20);
 var squadre = new Array(20);
 let partite = function (giornata) {
-    let squadra;
-    // Equivalent to for(squadra of squadre) loop
-    for (let i = 0; i < squadre.length; i++) {
-        squadra = squadre[i];
+    squadre.forEach(function (squadra) {
         squadra.azzeraPunti();
         squadra.azzeraPuntiTrad();
         squadra.resettaGol();
         squadra.resettaPartiteVintePersePareggiate();
-    }
+    });
     console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
     let soloquarta = false;
     let finoquinta = false;
@@ -362,26 +363,20 @@ let partite = function (giornata) {
         }
     }
     console.log("PARTITEEEEEEEEEEEEEEEEEEEEEEFATTE");
+    squadre.forEach(function (squadra) {
+        squadra.calcolaSomma();
+    });
 };
 function partita(squadra1, squadra2, goal1, goal2) {
     console.log("partita");
     console.log(squadra1);
-    for (let i = 0; i < squadre.length; i++) {
-        let corrente = squadre[i];
+    squadre.forEach(function (corrente) {
         if (corrente.nomesquadra == squadra1)
             corrente.aggiungipartita(goal1, goal2);
         if (corrente.nomesquadra == squadra2)
             corrente.aggiungipartita(goal2, goal1);
-    }
+    });
 }
-/*let tipoclassifica = () => {
-  let Alt = document.getElementById("alt").checked;
-  let Trad = document.getElementById("trad").checked;
-  let Somma = document.getElementById("somma").checked;
-  if (Alt) return "Alt";
-  if (Trad) return "Trad";
-  if (Somma) return "Somma";
-};*/
 module.exports = function (giornata) {
     squadre[inter] = Inter;
     squadre[juve] = Juve;
@@ -404,49 +399,19 @@ module.exports = function (giornata) {
     squadre[lazio] = Lazio;
     squadre[udinese] = Udinese;
     partite(giornata);
-    console.log("Generando array...");
-    console.log("Somma");
-    arr[inter] = Inter.getPunti() + Inter.getPuntiTrad();
-    arr[juve] = Juve.getPunti() + Juve.getPuntiTrad();
-    arr[milan] = Milan.getPunti() + Milan.getPuntiTrad();
-    arr[sampdoria] = Sampdoria.getPunti() + Sampdoria.getPuntiTrad();
-    arr[torino] = Torino.getPunti() + Torino.getPuntiTrad();
-    arr[roma] = Roma.getPunti() + Roma.getPuntiTrad();
-    arr[benevento] = Benevento.getPunti() + Benevento.getPuntiTrad();
-    arr[hellas] = Hellas.getPunti() + Hellas.getPuntiTrad();
-    arr[atalanta] = Atalanta.getPunti() + Atalanta.getPuntiTrad();
-    arr[spal] = Spal.getPunti() + Spal.getPuntiTrad();
-    arr[crotone] = Crotone.getPunti() + Crotone.getPuntiTrad();
-    arr[chievo] = Chievo.getPunti() + Chievo.getPuntiTrad();
-    arr[fiorentina] = Fiorentina.getPunti() + Fiorentina.getPuntiTrad();
-    arr[napoli] = Napoli.getPunti() + Napoli.getPuntiTrad();
-    arr[bologna] = Bologna.getPunti() + Bologna.getPuntiTrad();
-    arr[cagliari] = Cagliari.getPunti() + Cagliari.getPuntiTrad();
-    arr[genoa] = Genoa.getPunti() + Genoa.getPuntiTrad();
-    arr[sassuolo] = Sassuolo.getPunti() + Sassuolo.getPuntiTrad();
-    arr[lazio] = Lazio.getPunti() + Lazio.getPuntiTrad();
-    arr[udinese] = Udinese.getPunti() + Udinese.getPuntiTrad();
-    sortedarr = Array.from(arr);
-    sortedarr.sort((a, b) => b - a);
+    squadre.sort((a, b) => b.somma - a.somma);
     console.log("dentro lista");
-    var squadredauscire = [];
-    for (let i = 0; i < sortedarr.length; i++) {
-        for (let c = 0; c < arr.length; c++) {
-            if (arr[c] == sortedarr[i]) {
-                squadredauscire.push({
-                    "Squadra": squadre[c].nomesquadra,
-                    "Alternativa": squadre[c].getPunti().toFixed(1),
-                    "Tradizionale": squadre[c].getPuntiTrad().toFixed(1),
-                    "Somma": arr[c].toFixed(1),
-                    "Gol Fatti": squadre[c].getGolFatti(),
-                    "Gol Subiti": squadre[c].getGolSubiti(),
-                    "Vittorie": squadre[c].getVittorie(),
-                    "Pareggi": squadre[c].getPareggi(),
-                    "Sconfitte": squadre[c].getSconfitte()
-                });
-                arr[c] = 0;
-            }
-        }
-    }
-    return squadredauscire;
+    return squadre.map((squadra) => {
+        return {
+            "Squadra": squadra.nomesquadra,
+            "Alternativa": squadra.getPunti().toFixed(1),
+            "Tradizionale": squadra.getPuntiTrad().toFixed(0),
+            "Somma": squadra.getSomma().toFixed(1),
+            "Gol Fatti": squadra.getGolFatti(),
+            "Gol Subiti": squadra.getGolSubiti(),
+            "Vittorie": squadra.getVittorie(),
+            "Pareggi": squadra.getPareggi(),
+            "Sconfitte": squadra.getSconfitte()
+        };
+    });
 };
