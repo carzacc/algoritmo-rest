@@ -68,15 +68,15 @@ class Squadra {
         if (GFa < GSa) {
             this.sconfitte = this.sconfitte + 1;
         }
-        if (parseInt(GSa) == 0) {
+        if (GSa == 0) {
             this.punti = this.punti + quotaCS;
         }
         else {
-            if (parseInt(GSa) == 1) {
+            if (GSa == 1) {
                 this.punti = this.punti + 1.5;
             }
         }
-        if (parseInt(GFa) > 0) {
+        if (GFa > 0) {
             this.punti = this.punti + 1.3;
         }
         this.golfatti = this.golfatti + GFa;
@@ -389,19 +389,17 @@ let partite = function (giornata) {
         }
     }
     console.log("PARTITEEEEEEEEEEEEEEEEEEEEEEFATTE");
-    squadre.forEach(function (squadra) {
-        squadra.calcolaSomma();
-    });
+    squadre.forEach(s => s.calcolaSomma());
 };
 function partita(squadra1, squadra2, goal1, goal2) {
-    console.log("partita");
-    console.log(squadra1);
     for (let corrente of squadre) {
         if (corrente.nomesquadra == squadra1)
             corrente.aggiungipartita(goal1, goal2);
         else if (corrente.nomesquadra == squadra2)
             corrente.aggiungipartita(goal2, goal1);
         else {
+            console.log("Alias utilizzati");
+            console.log(squadra1 + "-" + squadra2);
             for (let al of corrente.alias) {
                 if (al == squadra1)
                     corrente.aggiungipartita(goal1, goal2);
