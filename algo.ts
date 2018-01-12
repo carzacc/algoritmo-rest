@@ -54,6 +54,7 @@ class Squadra {
   sconfitte: number;
   pareggi: number;
   vittorie: number;
+  somma: number;
   constructor(nome: string) {
     this.nomesquadra = nome;
     this.punti = 0;
@@ -126,6 +127,12 @@ class Squadra {
     this.pareggi = 0;
     this.sconfitte = 0;
   }
+  calcolaSomma()  {
+    this.somma = this.punti + this.puntiTrad;
+  }
+  getSomma()  {
+    return this.somma;
+  }
 };
 
 var Inter = new Squadra("Inter");
@@ -149,19 +156,15 @@ var Sassuolo = new Squadra("Sassuolo");
 var Cagliari = new Squadra("Cagliari");
 var Bologna = new Squadra("Bologna");
 
-var arr: number[] = new Array(20);
 var squadre: Squadra[] = new Array(20);
 
 let partite = function(giornata): void {
-let squadra: Squadra;
-// Equivalent to for(squadra of squadre) loop
-  for(let i = 0 ; i < squadre.length ; i++) {
-    squadra = squadre[i];
+  squadre.forEach(function(squadra) {
     squadra.azzeraPunti();
     squadra.azzeraPuntiTrad();
     squadra.resettaGol();
     squadra.resettaPartiteVintePersePareggiate();
-  }
+  })
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
   let soloquarta: boolean = false;
   let finoquinta: boolean = false;
@@ -377,6 +380,9 @@ let squadra: Squadra;
     }
   }
   console.log("PARTITEEEEEEEEEEEEEEEEEEEEEEFATTE");
+  squadre.forEach(function(squadra) {
+    squadra.calcolaSomma();
+  })
 
 }
 
@@ -412,52 +418,20 @@ module.exports = function(giornata) {
   squadre[udinese] = Udinese;
 
   partite(giornata);
-  console.log("Generando array...");
-  console.log("Somma");
-  arr = squadre.map(function (corrente) {
-    return corrente.getPunti() + corrente.getPuntiTrad();
-  })
-  let sortedarr: number[] = new Array(20);
-  sortedarr = Array.from(arr);
-  sortedarr.sort((a, b) => b - a);
+  squadre.sort((a, b) => b.somma - a.somma)
 
   console.log("dentro lista");
-/*
-  return sortedarr.map(function(ordinatocorrente)  {
-    return arr.map(function (completocorrente) {
-      if(completocorrente = ordinatocorrente) {
-        return {
-          "Squadra": squadre[arr.indexOf(completocorrente)].nomesquadra,
-          "Alternativa": squadre[arr.indexOf(completocorrente)].getPunti().toFixed(1),
-          "Tradizionale": squadre[arr.indexOf(completocorrente)].getPuntiTrad().toFixed(1),
-          "Somma": completocorrente.toFixed(1),
-          "Gol Fatti": squadre[arr.indexOf(completocorrente)].getGolFatti(),
-          "Gol Subiti": squadre[arr.indexOf(completocorrente)].getGolSubiti(),
-          "Vittorie": squadre[arr.indexOf(completocorrente)].getVittorie(),
-          "Pareggi": squadre[arr.indexOf(completocorrente)].getPareggi(),
-          "Sconfitte": squadre[arr.indexOf(completocorrente)].getSconfitte()
-        }
-      }
-    })
-  })/**/
-  let squadredauscire = [];
-  for (let i = 0; i < sortedarr.length; i++) {
-    for (let c = 0; c < arr.length; c++) {
-      if (arr[c] == sortedarr[i]) {
-        squadredauscire.push({
-          "Squadra": squadre[c].nomesquadra,
-          "Alternativa": squadre[c].getPunti().toFixed(1),
-          "Tradizionale": squadre[c].getPuntiTrad().toFixed(1),
-          "Somma": arr[c].toFixed(1),
-          "Gol Fatti": squadre[c].getGolFatti(),
-          "Gol Subiti": squadre[c].getGolSubiti(),
-          "Vittorie": squadre[c].getVittorie(),
-          "Pareggi": squadre[c].getPareggi(),
-          "Sconfitte": squadre[c].getSconfitte()
-        })
-        arr[c] = 0;
-      }
+  return squadre.map((squadra) => {
+    return {
+      "Squadra": squadra.nomesquadra,
+      "Alternativa": squadra.getPunti().toFixed(1),
+      "Tradizionale": squadra.getPuntiTrad().toFixed(0),
+      "Somma": squadra.getSomma().toFixed(1),
+      "Gol Fatti": squadra.getGolFatti(),
+      "Gol Subiti": squadra.getGolSubiti(),
+      "Vittorie": squadra.getVittorie(),
+      "Pareggi": squadra.getPareggi(),
+      "Sconfitte": squadra.getSconfitte()
     }
-  }
-  return squadredauscire;/**/
+  })
 }
