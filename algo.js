@@ -178,46 +178,6 @@ let partite = function (giornata) {
         squadra.resettaGol();
         squadra.resettaPartiteVintePersePareggiate();
     });
-    console.log("PARTITEEEEEEEEEEEEEEEEEEEEEE");
-    let soloquarta = false;
-    let finoquinta = false;
-    let finosesta = false;
-    let finosettima = false;
-    let finottava = false;
-    let finonona = false;
-    let finodecima = false;
-    let finoundicesima = false;
-    let finododicesima = false;
-    let finotredicesima = false;
-    let finoquattordicesima = false;
-    let finoquindicesima = false;
-    let finosedicesima = false;
-    if (giornata < 5)
-        soloquarta = true;
-    if (giornata < 6)
-        finoquinta = true;
-    if (giornata < 7)
-        finosesta = true;
-    if (giornata < 8)
-        finosettima = true;
-    if (giornata < 9)
-        finottava = true;
-    if (giornata < 10)
-        finonona = true;
-    if (giornata < 11)
-        finodecima = true;
-    if (giornata < 12)
-        finoundicesima = true;
-    if (giornata < 13)
-        finododicesima = true;
-    if (giornata < 14)
-        finotredicesima = true;
-    if (giornata < 15)
-        finoquattordicesima = true;
-    if (giornata < 16)
-        finoquindicesima = true;
-    if (giornata < 17)
-        finosedicesima = true;
     partita("juventus", "Cagliari", 3, 0);
     partita("Verona", "Napoli", 1, 3);
     partita("Atalanta", "Roma", 0, 1);
@@ -257,7 +217,7 @@ let partite = function (giornata) {
     partita("Torino", "Sampdoria", 2, 2);
     partita("Chievo", "Atalanta", 1, 1);
     partita("Genoa", "Lazio", 2, 3);
-    if (!soloquarta) {
+    if (giornata > 4) {
         partita("Bologna", "Inter", 1, 1);
         partita("Benevento", "Roma", 0, 4);
         partita("Atalanta", "Crotone", 5, 1);
@@ -268,7 +228,7 @@ let partite = function (giornata) {
         partita("Milan", "Spal", 2, 0);
         partita("Udinese", "Torino", 2, 3);
         partita("Verona", "Sampdoria", 0, 0);
-        if (!finoquinta) {
+        if (giornata > 5) {
             partita("Roma", "Udinese", 3, 1);
             partita("Spal", "Napoli", 2, 3);
             partita("juventus", "Torino", 4, 0);
@@ -280,7 +240,7 @@ let partite = function (giornata) {
             partita("Sassuolo", "Bologna", 0, 1);
             partita("Fiorentina", "Atalanta", 1, 1);
         }
-        if (!finosesta) {
+        if (giornata > 6) {
             partita("Udinese", "Sampdoria", 4, 0);
             partita("Genoa", "Bologna", 0, 1);
             partita("Napoli", "Cagliari", 3, 0);
@@ -292,7 +252,7 @@ let partite = function (giornata) {
             partita("Milan", "Roma", 0, 2);
             partita("Atalanta", "juventus", 2, 2);
         }
-        if (!finosettima) {
+        if (giornata > 7) {
             partita("juventus", "Lazio", 1, 2);
             partita("Roma", "Napoli", 0, 1);
             partita("Fiorentina", "Udinese", 2, 1);
@@ -303,7 +263,7 @@ let partite = function (giornata) {
             partita("Sassuolo", "Chievo", 0, 0);
             partita("Inter", "Milan", 3, 2);
             partita("Verona", "Benevento", 1, 0);
-            if (!finottava) {
+            if (giornata > 8) {
                 partita("Sampdoria", "Crotone", 5, 0);
                 partita("Napoli", "Inter", 0, 0);
                 partita("Chievo", "Verona", 3, 2);
@@ -314,7 +274,7 @@ let partite = function (giornata) {
                 partita("Torino", "Roma", 0, 1);
                 partita("Udinese", "juventus", 2, 6);
                 partita("Lazio", "Cagliari", 3, 0);
-                if (!finonona) {
+                if (giornata > 9) {
                     partita("Inter", "Sampdoria", 3, 2);
                     partita("Atalanta", "Verona", 3, 0);
                     partita("Bologna", "Lazio", 1, 2);
@@ -325,7 +285,7 @@ let partite = function (giornata) {
                     partita("juventus", "Spal", 4, 1);
                     partita("Roma", "Crotone", 1, 0);
                     partita("Sassuolo", "Udinese", 0, 1);
-                    if (!finodecima) {
+                    if (giornata > 10) {
                         partita("Milan", "juventus", 0, 2);
                         partita("Roma", "Bologna", 1, 0);
                         partita("Benevento", "Lazio", 1, 5);
@@ -337,7 +297,7 @@ let partite = function (giornata) {
                         partita("Torino", "Cagliari", 2, 1);
                         partita("Verona", "Inter", 1, 2);
                     }
-                    if (!finoundicesima) {
+                    if (giornata > 11) {
                         partita("Bologna", "Crotone", 2, 3);
                         partita("Genoa", "Sampdoria", 0, 2);
                         partita("Inter", "Torino", 1, 1);
@@ -348,7 +308,7 @@ let partite = function (giornata) {
                         partita("Atalanta", "Spal", 1, 1);
                         partita("Sassuolo", "Milan", 0, 2);
                     }
-                    if (!finododicesima) {
+                    if (giornata > 12) {
                         partita("Roma", "Lazio", 2, 1);
                         partita("Napoli", "Milan", 2, 1);
                         partita("Crotone", "Genoa", 0, 1);
@@ -360,7 +320,7 @@ let partite = function (giornata) {
                         partita("Inter", "Atalanta", 2, 0);
                         partita("Verona", "Bologna", 2, 3);
                     }
-                    if (!finotredicesima) {
+                    if (giornata > 13) {
                         partita("Bologna", "Sampdoria", 3, 0);
                         partita("Sassuolo", "Verona", 0, 2);
                         partita("Chievo", "Spal", 2, 1);
@@ -372,7 +332,7 @@ let partite = function (giornata) {
                         partita("juventus", "Crotone", 3, 0);
                         partita("Atalanta", "Benevento", 1, 0);
                     }
-                    if (!finoquattordicesima) {
+                    if (giornata > 14) {
                         partita("Roma", "Spal", 3, 1);
                         partita("Napoli", "juventus", 0, 1);
                         partita("Torino", "Atalanta", 1, 1);
@@ -388,7 +348,6 @@ let partite = function (giornata) {
             }
         }
     }
-    console.log("PARTITEEEEEEEEEEEEEEEEEEEEEEFATTE");
     squadre.forEach(s => s.calcolaSomma());
 };
 function partita(squadra1, squadra2, goal1, goal2) {
@@ -398,8 +357,6 @@ function partita(squadra1, squadra2, goal1, goal2) {
         else if (corrente.nomesquadra == squadra2)
             corrente.aggiungipartita(goal2, goal1);
         else {
-            console.log("Alias utilizzati");
-            console.log(squadra1 + "-" + squadra2);
             for (let al of corrente.alias) {
                 if (al == squadra1)
                     corrente.aggiungipartita(goal1, goal2);
@@ -432,7 +389,6 @@ module.exports = function (giornata) {
     squadre[udinese] = Udinese;
     partite(giornata);
     squadre.sort((a, b) => b.somma - a.somma);
-    console.log("dentro lista");
     return squadre.map((squadra) => {
         return {
             "Squadra": squadra.nomesquadra,
