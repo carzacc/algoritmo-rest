@@ -192,6 +192,7 @@ let partite = function(giornata): void {
     squadra.resettaGol();
     squadra.resettaPartiteVintePersePareggiate();
   })
+  if(!giornata) giornata=40
   partita("juventus", "Cagliari", 3, 0);
   partita("Verona", "Napoli", 1, 3);
   partita("Atalanta", "Roma", 0, 1);
