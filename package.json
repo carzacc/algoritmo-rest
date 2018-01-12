@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "node ./node_modules/babel-cli/bin/babel --presets react public/jsx/app.jsx -o public/js/app.js; ./node_modules/typescript/bin/tsc algo -t es6;./node_modules/typescript/bin/tsc index -t es6",
+    "compile": "./node_modules/typescript/bin/tsc algo -t es6;./node_modules/typescript/bin/tsc index -t es6",
     "start": "node index.js",
     "siege": "siege -c10 -t1M http://localhost:3000",
     "test": "npm run-script compile"

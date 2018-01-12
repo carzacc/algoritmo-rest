@@ -47,6 +47,7 @@ const quotaGF = 1.3;
 
 class Squadra {
   nomesquadra: string;
+  alias: string[];
   punti: number;
   puntiTrad: number;
   golfatti: number;
@@ -64,6 +65,8 @@ class Squadra {
     this.pareggi = 0;
     this.sconfitte = 0;
     this.vittorie = 0;
+    this.somma = 0;
+    this.alias = [];
   }
   aggiungipartita(GFa, GSa) {
     if (GFa > GSa) {
@@ -133,10 +136,22 @@ class Squadra {
   getSomma()  {
     return this.somma;
   }
+  aggiungiAlias(alias: string[])  {
+    if(alias) {
+      alias.forEach(al =>  {
+        this.alias.push(al);
+      })
+    }
+  }
 };
 
 var Inter = new Squadra("Inter");
 var Juve = new Squadra("juventus");
+Juve.aggiungiAlias([
+  "Juventus",
+  "Juve",
+  "juve"
+])
 var Napoli = new Squadra("Napoli");
 var Milan = new Squadra("Milan");
 var Lazio = new Squadra("Lazio");
@@ -144,11 +159,23 @@ var Benevento = new Squadra("Benevento");
 var Sampdoria = new Squadra("Sampdoria");
 var Roma = new Squadra("Roma");
 var Hellas = new Squadra("Verona");
+Hellas.aggiungiAlias([
+  "Hellas",
+  "Hellas Verona",
+  "HellasVerona"
+])
 var Torino = new Squadra("Torino");
 var Atalanta = new Squadra("Atalanta");
 var Spal = new Squadra("Spal");
+Spal.aggiungiAlias([
+  "Spal"
+])
 var Crotone = new Squadra("Crotone");
 var Chievo = new Squadra("Chievo");
+Chievo.aggiungiAlias([
+  "ChievoVerona",
+  "Chievo Verona"
+])
 var Fiorentina = new Squadra("Fiorentina");
 var Udinese = new Squadra("Udinese");
 var Genoa = new Squadra("Genoa");
@@ -419,7 +446,6 @@ module.exports = function(giornata) {
 
   partite(giornata);
   squadre.sort((a, b) => b.somma - a.somma)
-
   console.log("dentro lista");
   return squadre.map((squadra) => {
     return {
