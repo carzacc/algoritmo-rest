@@ -346,6 +346,66 @@ let partite = function (giornata) {
                         partita("Crotone", "Udinese", 0, 3);
                         partita("Verona", "Genoa", 0, 1);
                     }
+                    if (giornata > 15) {
+                        partita("Cagliari", "Sampdoria", 2, 2);
+                        partita("juventus", "Inter", 0, 0);
+                        partita("Chievo", "Roma", 0, 0);
+                        partita("Napoli", "Fiorentina", 0, 0);
+                        partita("Spal", "Verona", 2, 2);
+                        partita("Udinese", "Benevento", 2, 0);
+                        partita("Sassuolo", "Crotone", 2, 1);
+                        partita("Milan", "Bologna", 2, 1);
+                        partita("Genoa", "Atalanta", 1, 2);
+                        partita("Lazio", "Torino", 1, 3);
+                    }
+                    if (giornata > 16) {
+                        partita("Inter", "Udinese", 1, 3);
+                        partita("Torino", "Napoli", 1, 3);
+                        partita("Roma", "Cagliari", 1, 0);
+                        partita("Verona", "Milan", 3, 0);
+                        partita("Fiorentina", "Genoa", 0, 0);
+                        partita("Sampdoria", "Sassuolo", 0, 1);
+                        partita("Bologna", "Juventus", 0, 3);
+                        partita("Crotone", "Chievo", 1, 0);
+                        partita("Benevento", "Spal", 1, 2);
+                        partita("Atalanta", "Lazio", 3, 3);
+                    }
+                    if (giornata > 17) {
+                        partita("Chievo", "Bologna", 2, 3);
+                        partita("Cagliari", "Fiorentina", 0, 1);
+                        partita("Lazio", "Crotone", 4, 0);
+                        partita("Sassuolo", "Inter", 1, 0);
+                        partita("Udinese", "Verona", 4, 0);
+                        partita("Napoli", "Sampdoria", 3, 2);
+                        partita("Spal", "Torino", 2, 2);
+                        partita("Genoa", "Benevento", 1, 0);
+                        partita("Milan", "Atalanta", 0, 2);
+                        partita("Juventus", "Roma", 1, 0);
+                    }
+                    if (giornata > 18) {
+                        partita("Crotone", "Napoli", 0, 1);
+                        partita("Fiorentina", "Milan", 1, 1);
+                        partita("Torino", "Genoa", 0, 0);
+                        partita("Benevento", "Chievo", 1, 0);
+                        partita("Roma", "Sassuolo", 1, 1);
+                        partita("Sampdoria", "Spal", 2, 0);
+                        partita("Atalanta", "Cagliari", 1, 2);
+                        partita("Bologna", "Udinese", 1, 2);
+                        partita("Inter", "Lazio", 0, 0);
+                        partita("Verona", "Juventus", 1, 3);
+                    }
+                    if (giornata > 19) {
+                        partita("Chievo", "Udinese", 1, 1);
+                        partita("Fiorentina", "Inter", 1, 1);
+                        partita("Torino", "Bologna", 3, 0);
+                        partita("Milan", "Crotone", 1, 0);
+                        partita("Benevento", "Sampdoria", 3, 2);
+                        partita("Genoa", "Sassuolo", 1, 0);
+                        partita("Spal", "Lazio", 2, 5);
+                        partita("Napoli", "Verona", 2, 0);
+                        partita("Roma", "Atalanta", 1, 2);
+                        partita("Cagliari", "juventus", 0, 1);
+                    }
                 }
             }
         }
@@ -354,15 +414,15 @@ let partite = function (giornata) {
 };
 function partita(squadra1, squadra2, goal1, goal2) {
     for (let corrente of squadre) {
-        if (corrente.nomesquadra == squadra1)
+        if (corrente.nomesquadra.toLowerCase() == squadra1.toLowerCase())
             corrente.aggiungipartita(goal1, goal2);
-        else if (corrente.nomesquadra == squadra2)
+        else if (corrente.nomesquadra.toLowerCase() == squadra2.toLowerCase())
             corrente.aggiungipartita(goal2, goal1);
         else {
             for (let al of corrente.alias) {
-                if (al == squadra1)
+                if (al.toLowerCase() == squadra1.toLowerCase())
                     corrente.aggiungipartita(goal1, goal2);
-                else if (al == squadra2)
+                else if (al.toLowerCase() == squadra2.toLowerCase())
                     corrente.aggiungipartita(goal2, goal1);
             }
         }
