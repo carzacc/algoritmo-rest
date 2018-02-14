@@ -30,8 +30,8 @@ var compression = require('compression');
 var helmet = require('helmet');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var algoritmo = require('./algo')
-
+var algoritmo = require('./algo');
+var morgan = require('morgan');
 //var connessione = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 var app = express();
 
@@ -48,6 +48,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(expressValidator());
+app.use(morgan('combined'));
 
 app.get('/', function(req,res)  {
   let giornata = req.query.g;
@@ -60,3 +61,5 @@ let port = process.env.PORT || 3000;
 app.listen(port, function() {
   return console.log("Avviato server su porta " + port);
 });
+
+module.exports = app;
